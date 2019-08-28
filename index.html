@@ -26,27 +26,35 @@
         <canvas width="1200" height="600">
         </canvas>
         <p id="text">Select your character</p>
+        <p id="p1wins" style="display: none">Game Over! P1 Wins!</p>
+        <p id="p2wins" style="display: none">Game Over! P2 Wins!</p>
         <div id="battlebutton"><button type="button" class="btn btn-success">Pizza Battle!</button></div>
-        <div id="player-selector" style="display: none">
+        <div id="playagain" style="display: none"><button type="button" class="btn btn-success" >Play Again</button></div>
+    </div>
+            <div id="player-selector" style="display: none">
             <img src="./assets/leo.png" alt="leo" id="leo" >
             <img src="./assets/rafa.png" alt="leo" id="rafa">
             <img src="./assets/leo.png" alt="leo" id="mike" >
             <img src="./assets/rafa.png" alt="leo" id="donie">
-
-            </div>
-        
         
         <div id="player1"></div>
         <div id="player2"></div>
     </div>
 
-    <div id="p1buttons" style="display: none">
+    <div id="p1buttons" >
         <img src="./assets/W.jpg" alt="W" style="display: none" id="w">
         <img src="./assets/A.jpg" alt="A" style="display: none" id="a">
         <img src="./assets/S.jpg" alt="S" style="display: none" id="s">
         <img src="./assets/D.jpg" alt="D" style="display: none" id="d">
     </div>
     
+    <div id="p2buttons" >
+        <img src="./assets/up.jpg" alt="Up" style="display: none" id="up">
+        <img src="./assets/down.jpg" alt="Down" style="display: none" id="down">
+        <img src="./assets/right.jpg" alt="Right" style="display: none" id="right">
+        <img src="./assets/left.jpg" alt="Left" style="display: none" id="left">
+    </div>
+
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

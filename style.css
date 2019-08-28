@@ -24,7 +24,7 @@ body{
 
 #game-board{
     position: relative;
-    padding-top: 60px;
+    padding-top: 40px;
 }
 
 #char-select{
@@ -108,35 +108,66 @@ body{
 
 #p1buttons{
     position: relative;
-    top: 20%;
-    width: 500px;
-    height: 500px;
+    right: 28%;
 }
 
 #w{
   position: absolute;
-  top: 25%;
-  left: 15%;
   width: 50px;  
 }
 
 #a{
     position: absolute;
-    top: 25%;
-    left: 15%;
     width: 50px;
 }
 
 #s{
     position: absolute;
-    top: 25%;
-    left: 15%;
     width: 50px;
 }
 
 #d{
     position: absolute;
-    top: 25%;
-    left: 15%;
     width: 50px;
+}
+
+
+#p2buttons{
+    position: relative;
+    left: 26%;
+}
+
+#up{
+  position: absolute;
+  width: 50px;  
+}
+
+#down{
+    position: absolute;
+    width: 50px;
+}
+
+#right{
+    position: absolute;
+    width: 50px;
+}
+
+#left{
+    position: absolute;
+    width: 50px;
+}
+
+#p1wins{
+    z-index: 2;
+}
+
+#p2wins{
+    z-index: 2;
+}
+
+#playagain {
+    position: absolute;
+    top: 85%;
+    left: 41%;
+    z-index: 2;
 }

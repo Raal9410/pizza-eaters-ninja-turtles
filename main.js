@@ -14,15 +14,27 @@ const a = document.querySelector('#a')
 const s = document.querySelector('#s')
 const d = document.querySelector('#d')
 
+const p2btns = document.querySelector('#p2buttons')
+const up = document.querySelector('#up')
+const down = document.querySelector('#down')
+const right = document.querySelector('#right')
+const left = document.querySelector('#left')
+
+//wins
+const again = document.querySelector('#playagain')
+
 const ctx = canvas.getContext('2d')
 let frames = 0
 let interval
 let currentbtnp1
 let currentbtnp2
-let player1buttons =['w','a','s','d']
-let player1keycode =[87, 65, 83, 68]
-let player2buttons = ['up','down','right','left']
-let player2keycode = [38,40,39,37]
+let pressp1
+let p1counter = 0
+let p2counter = 0
+//let player1buttons =['w','a','s','d']
+//let player1keycode =[87, 65, 83, 68]
+//let player2buttons = ['up','down','right','left']
+//let player2keycode = [38,40,39,37]
 
 
 class Board {
@@ -101,6 +113,7 @@ const pizzap2 = new Pizza(770, 200)
 function start() {
   interval = setInterval(update, 1000 / 60)
   player1inputs()
+  player2inputs()
 }
 
 function playerinputs(){
@@ -113,45 +126,132 @@ function player1inputs(){
 let btn = playerinputs()
 if (btn===0){
  currentbtnp1 = 'W'
- p1btns.style.display = ''
  w.style.display = '' 
  console.log('w')
 }
 else if (btn ===1){
   currentbtnp1 = 'A'
-  p1btns.style.display = ''
   a.style.display = ''
   console.log('a')
 }
 else if(btn === 2){
   currentbtnp1 = 'S'
-  p1btns.style.display = ''
   s.style.display = ''
   console.log('s')
 }
 else {
    currentbtnp1 = 'D'
-   p1btns.style.display = ''
   d.style.display = ''
   console.log('d')
 }
 }
 
-function player2inputs(){
-  let btn = playerinputs()
-  if (btn===0){
-    return currentbtnp2 = 'Up'
-  }
-  else if (btn ===1){
-    return currentbtnp2 = 'Down'
-  }
-  else if(btn === 2){
-    return currentbtnp2 = 'Right'
-  }
-  else {
-    return currentbtnp2 = 'Left'
+document.onkeydown = e => {
+  switch (e.keyCode) {
+    case 87:
+      if(currentbtnp1 == 'W'){
+        w.style.display = 'none'
+        p1counter +=1
+        player1inputs()
+      }
+      else{
+        p1counter -= 1
+      }
+      break
+    case 65:
+      if(currentbtnp1 == 'A'){
+        a.style.display = 'none'
+        p1counter +=1
+        player1inputs()
+          }
+          else{
+            p1counter -= 1
+          }
+      break 
+   case 83:
+      if(currentbtnp1 == 'S'){
+        s.style.display = 'none'
+        p1counter +=1
+        player1inputs()
+         }
+         else{
+          p1counter -= 1
+        }
+        break
+  case 68:
+    if(currentbtnp1 == 'D'){
+      d.style.display = 'none'
+        p1counter +=1
+      player1inputs()
+        }
+        else{
+          p1counter -= 1
+        }
+      break        
+      case 38:
+          if(currentbtnp2 == 'Up'){
+            up.style.display = 'none'
+            p2counter +=1
+            player2inputs()
+          }
+          else{
+            p2counter -= 1
+          }
+          break
+        case 40:
+          if(currentbtnp2 == 'Down'){
+            down.style.display = 'none'
+            p2counter +=1
+            player2inputs()
+              }
+              else{
+                p2counter -= 1
+              }
+          break 
+       case 39:
+          if(currentbtnp2 == 'Right'){
+            right.style.display = 'none'
+            p2counter +=1
+            player2inputs()
+             }
+             else{
+              p2counter -= 1
+            }
+            break
+      case 37:
+        if(currentbtnp2 == 'Left'){
+          left.style.display = 'none'
+            p2counter +=1
+          player2inputs()
+            }
+            else{
+              p2counter -= 1
+            }  
+    default:
+      break
   }
 }
+
+function player2inputs(){
+  let btn2 = playerinputs()
+  if (btn2===0){
+   currentbtnp2 = 'Up'
+   up.style.display = '' 
+  }
+  else if (btn2 ===1){
+    currentbtnp2 = 'Down'
+    down.style.display = ''
+  }
+  else if(btn2 === 2){
+    currentbtnp2 = 'Right'
+    right.style.display = ''
+  }
+  else {
+     currentbtnp2 = 'Left'
+    left.style.display = ''
+  }
+  }
+  
 
 startButton.onclick = function(){
 const home = document.querySelector('#homescreen')
@@ -175,6 +275,24 @@ battbutton.onclick = function(){
   start()
   }
 
+  again.onclick = function(){
+    location.reload()
+  }
+
+  function gameOver() {
+    if(p1counter == 15){
+    const p1wins = document.querySelector('#p1wins')
+    p1wins.style.display = ''
+    again.style.display = ''
+    clearInterval(interval)
+   }
+   if(p2counter == 15){     
+    const p2wins = document.querySelector('#p2wins')
+    p2wins.style.display = ''
+    again.style.display = ''
+    clearInterval(interval)
+   }
+  }
 
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -184,4 +302,5 @@ function update() {
     player2.draw()
     pizzap1.draw()
     pizzap2.draw()
+    gameOver()
   }
