@@ -106,6 +106,7 @@ body{
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
 
+
 #p1buttons{
     position: relative;
     right: 28%;
@@ -171,3 +172,63 @@ body{
     left: 41%;
     z-index: 2;
 }
+
+#player-selector {
+    display: flex;
+}
+
+#player-selector p{
+    position: absolute;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 20px;
+    color: white; 
+    display: flex;
+    bottom: 25%;
+    justify-content: space-evenly
+}
+
+.leo{
+    position: absolute;
+    left: 17%;
+}
+
+.rafa{
+    position: absolute;
+    left: 37.5%;
+}
+
+.mike{
+    position: absolute;
+    left: 57%;
+}
+
+.donie{
+    position: absolute;
+    left: 76%;
+}
+
+#pizzaimgp1{ 
+position: relative;
+display: flex; 
+}
+
+#pizzaimgp1  img{
+position: absolute;
+display: flex;
+width: 200px;
+bottom: 190px;
+right: 150px;
+}
+
+#pizzaimp2{ 
+    position: relative;
+    display: flex; 
+}
+    
+#pizzaimgp2  img{
+    position: absolute;
+    display: flex;
+    width: 200px;
+    bottom: 280px;
+    right: 400px;
+    }
