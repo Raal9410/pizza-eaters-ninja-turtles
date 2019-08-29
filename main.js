@@ -65,13 +65,6 @@ let currentbtnp1
 let currentbtnp2
 let p1counter = 0
 let p2counter = 0
-let name = []
-
-//let player1buttons =['w','a','s','d']
-//let player1keycode =[87, 65, 83, 68]
-//let player2buttons = ['up','down','right','left']
-//let player2keycode = [38,40,39,37]
-
 
 class Board {
   constructor() {
