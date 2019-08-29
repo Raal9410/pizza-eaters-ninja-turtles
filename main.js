@@ -107,45 +107,45 @@ class Player{
     this.side = side
     //Leo R
     this.imgLeoCRight = new Image()
-    this.imgLeoCRight.src = './assets/tortugas right/leo boca cerrada R.png'
+    this.imgLeoCRight.src = 'assets/tortugas right/leo boca cerrada R.png'
     this.imgLeoORight = new Image()
-    this.imgLeoORight.src = './assets/tortugas right/leo boca abierta R.png'
+    this.imgLeoORight.src = 'assets/tortugas right/leo boca abierta R.png'
     //Rafa R
     this.imgRafaCRight = new Image()
-    this.imgRafaCRight.src = './assets/tortugas right/rafa boca cerrada R.png'
+    this.imgRafaCRight.src = 'assets/tortugas right/rafa boca cerrada R.png'
     this.imgRafaORight = new Image()
-    this.imgRafaORight.src = './assets/tortugas right/rafa boca abierta R.png'
+    this.imgRafaORight.src = 'assets/tortugas right/rafa boca abierta R.png'
     //Mike R
     this.imgMikeCRight = new Image()
-    this.imgMikeCRight.src = './assets/tortugas right/michela boca cerrada R.png'
+    this.imgMikeCRight.src = 'assets/tortugas right/michela boca cerrada R.png'
     this.imgMikeORight = new Image()
-    this.imgMikeORight.src = './assets/tortugas right/michela boca abierta R.png'
+    this.imgMikeORight.src = 'assets/tortugas right/michela boca abierta R.png'
     //Donie R
     this.imgDonieCRight = new Image()
-    this.imgDonieCRight.src = './assets/tortugas right/don boca cerrada R.png'
+    this.imgDonieCRight.src = 'assets/tortugas right/don boca cerrada R.png'
     this.imgDonieORight = new Image()
-    this.imgDonieORight.src = './assets/tortugas right/don boca abierta R.png'
+    this.imgDonieORight.src = 'assets/tortugas right/don boca abierta R.png'
     
     //Leo L
     this.imgLeoCLeft = new Image()
-    this.imgLeoCLeft.src = './assets/tortugas left/leo boca cerrada L.png'
+    this.imgLeoCLeft.src = 'assets/tortugas left/leo boca cerrada L.png'
     this.imgLeoOLeft = new Image()
-    this.imgLeoOLeft.src = './assets/tortugas left/leo boca abierta L.png'
+    this.imgLeoOLeft.src = 'assets/tortugas left/leo boca abierta L.png'
     //Rafa L
     this.imgRafaCLeft = new Image()
-    this.imgRafaCLeft.src = './assets/tortugas left/rafa boca cerrada L.png'
+    this.imgRafaCLeft.src = 'assets/tortugas left/rafa boca cerrada L.png'
     this.imgRafaOLeft = new Image()
-    this.imgRafaOLeft.src = './assets/tortugas left/rafa boca abierta L.png'
+    this.imgRafaOLeft.src = 'assets/tortugas left/rafa boca abierta L.png'
     //Mike L
     this.imgMikeCLeft = new Image()
-    this.imgMikeCLeft.src = './assets/tortugas left/michela boca cerrada L.png'
+    this.imgMikeCLeft.src = 'assets/tortugas left/michela boca cerrada L.png'
     this.imgMikeOLeft = new Image()
-    this.imgMikeOLeft.src = './assets/tortugas left/michela boca abierta L.png'
+    this.imgMikeOLeft.src = 'assets/tortugas left/michela boca abierta L.png'
     //Donie L
     this.imgDonieCLeft = new Image()
-    this.imgDonieCLeft.src = './assets/tortugas left/don boca cerrada L.png'
+    this.imgDonieCLeft.src = 'assets/tortugas left/don boca cerrada L.png'
     this.imgDonieOLeft = new Image()
-    this.imgDonieOLeft.src = './assets/tortugas left/don boca abierta L.png'
+    this.imgDonieOLeft.src = 'assets/tortugas left/don boca abierta L.png'
     }
     draw(){
       if(this.name == 'Leo' && this.side == true){
@@ -199,20 +199,6 @@ class Player{
     }
 }
 
-class Pizza{
-  constructor(x,y){
-    this.x = x
-    this.y = y
-    this.width = 280
-    this.height = 250
-    this.img = new Image()
-    this.img.src = './assets/Pizza.001.png'
-    }
-    draw(){
-      ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
-    }
-    
-}
 
 const game = new Board()
 const select = new Board()
