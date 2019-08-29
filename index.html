@@ -14,17 +14,20 @@
 <body>
     <audio src="./assets/01_Introduction.mp3" id="music"></audio>
     <audio src="./assets/battle.mp3" id="battlemusic"></audio>
+    <audio src="./assets/button.wav" id="buttonsmash"></audio>
 
     <div id="homescreen">
             <img src="./assets/PENT_burned(1).png" alt="" style="width:150%;" class="logo">
             <br>
             <div id="startbutton"><button type="button" class="btn btn-success">Start!</button></div>
-            <div id="controlsbutton"><button type="button" class="btn btn-success">Controls</button></div>
+            
             
     </div>
     <div id="game-board" style="display: none">
         <canvas width="1200" height="600">
         </canvas>
+        <p id="player1select">Player 1</p>
+        <p id="player2select" style="display: none">Player 2</p>
         <p id="text">Select your character</p>
         <p id="p1wins" style="display: none">Game Over! P1 Wins!</p>
         <p id="p2wins" style="display: none">Game Over! P2 Wins!</p>
@@ -34,10 +37,10 @@
     
     </div>
             <div id="player-selector" style="display: none">
-            <img src="./assets/tortugas right/leo boca cerrada R.png" alt="leo" id="leo" > 
-            <img src="./assets/tortugas right/rafa boca cerrada R.png" alt="rafa" id="rafa"> 
-            <img src="./assets/tortugas right/michela boca cerrada R.png" alt="mike" id="mike"> 
-            <img src="./assets/tortugas right/don boca cerrada R.png" alt="don" id="donie"> 
+            <button id="Leonardo"><img src="./assets/tortugas right/leo boca cerrada R.png" alt="leo" id="leo" ></button> 
+            <button id="Raphael"><img src="./assets/tortugas right/rafa boca cerrada R.png" alt="rafa" id="rafa"></button> 
+            <button id="Mikey"><img src="./assets/tortugas right/michela boca cerrada R.png" alt="mike" id="mike"></button> 
+            <button id="Donn"><img src="./assets/tortugas right/don boca cerrada R.png" alt="don" id="donie"></button> 
             <p class="leo">Leo</p>
             <p class="rafa">Raph</p>
             <p class="mike">Mikey</p>

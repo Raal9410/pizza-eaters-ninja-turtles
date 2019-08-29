@@ -18,8 +18,28 @@ body{
     color: white;
     position: absolute;
     z-index: 2;
-    top: 12%;
+    top: 10%;
     left: 28%;
+}
+
+#player1select{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    padding-top: 50px;
+    padding-left: 160px;
+}
+
+#player2select{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    padding-top: 50px;
+    padding-left: 160px;
 }
 
 #game-board{

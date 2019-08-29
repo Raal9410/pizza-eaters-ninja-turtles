@@ -3,6 +3,7 @@ const canvas = document.querySelector('canvas')
 //music
 const bgmusic = document.querySelector('#music')
 const battlemusic = document.querySelector('#battlemusic')
+const buttonsmash = document.querySelector('#buttonsmash')
 //boards
 const gameScreen = document.querySelector('#game-board')
 const battbutton = document.querySelector('#battlebutton')
@@ -46,10 +47,14 @@ const pizza92 = document.querySelector('#pizza92')
 const pizza102 = document.querySelector('#pizza102')
 
 //player selector
-const leo = document.querySelector('#leo')
-const raph = document.querySelector('#rafa')
-const mike = document.querySelector('#mike')
-const don = document.querySelector('#donie')
+const leo = document.querySelector('#Leonardo')
+const raph = document.querySelector('#Raphael')
+const mike = document.querySelector('#Mikey')
+const don = document.querySelector('#Donn')
+
+//select name
+const play1 = document.querySelector('#player1select')
+const play2 = document.querySelector('#player2select')
 
 let charArr = [leo, raph, mike, don]
 
@@ -92,31 +97,13 @@ draw() {
 }
 }
 
-/*
-class LeoRight {
-  constructor(type, x, y){
-    this.x = x
-    this.y = y
-    this.width = 210
-    this.height = 180
-    this.type = type
-    this.imgLeoC = new Image()
-    this.imgLeoC.src = './assets/tortugas right/leo boca cerrada R.png'
-    this.imgLeoO = new Image()
-    this.imgLeoO.src = '. /assets/tortugas right/leo boca abierta R.png'
-  }
-  draw(){
-    ctx.drawImage(this.type,this.img, this.x, this.y, this.width, this.height)
-  }
-}
-*/
 class Player{
   constructor(x,y, name, side){
     this.x = x
     this.y = y
     this.width = 210
     this.height = 180
-    this.name = charArr
+    this.name = name
     this.side = side
     //Leo R
     this.imgLeoCRight = new Image()
@@ -127,7 +114,7 @@ class Player{
     this.imgRafaCRight = new Image()
     this.imgRafaCRight.src = './assets/tortugas right/rafa boca cerrada R.png'
     this.imgRafaORight = new Image()
-    this.imgRafaORight.src = '.assets/tortugas right/rafa boca abierta R.png'
+    this.imgRafaORight.src = './assets/tortugas right/rafa boca abierta R.png'
     //Mike R
     this.imgMikeCRight = new Image()
     this.imgMikeCRight.src = './assets/tortugas right/michela boca cerrada R.png'
@@ -161,10 +148,56 @@ class Player{
     this.imgDonieOLeft.src = './assets/tortugas left/don boca abierta L.png'
     }
     draw(){
-      ctx.drawImage(this.img, this.x, this.y, this.name, this.side)
+      if(this.name == 'Leo' && this.side == true){
+        ctx.drawImage(this.imgLeoCRight, this.x, this.y, this.width, this.height)
+        if(p1counter%2 !== 0){
+          ctx.drawImage(this.imgLeoORight, this.x, this.y, this.width, this.height)
+        }
+      }
+      else if(this.name == 'Rafa' && this.side == true){
+        ctx.drawImage(this.imgRafaCRight, this.x, this.y, this.width, this.height)
+        if(p1counter%2 !== 0){
+          ctx.drawImage(this.imgRafaORight, this.x, this.y, this.width, this.height)
+        }
+      }
+      else if(this.name == 'Donie' && this.side == true){
+        ctx.drawImage(this.imgDonieCRight, this.x, this.y, this.width, this.height)
+        if(p1counter%2 !== 0){
+          ctx.drawImage(this.imgDonieORight, this.x, this.y, this.width, this.height)
+        }
+      }
+      else if(this.name == 'Mike' && this.side == true){
+        ctx.drawImage(this.imgMikeCRight, this.x, this.y, this.width, this.height)
+        if(p1counter%2 !== 0){
+          ctx.drawImage(this.imgMikeORight, this.x, this.y, this.width, this.height)
+        }
+      }
+      else if(this.name == 'LeoL' && this.side !== true){
+        ctx.drawImage(this.imgLeoCLeft, this.x, this.y, this.width, this.height)
+        if(p2counter%2 !== 0){
+          ctx.drawImage(this.imgLeoOLeft, this.x, this.y, this.width, this.height)
+        }
+      }
+      else if(this.name == 'RafaL' && this.side !== true){
+        ctx.drawImage(this.imgRafaCLeft, this.x, this.y, this.width, this.height)
+        if(p2counter%2 !== 0){
+          ctx.drawImage(this.imgRafaOLeft, this.x, this.y, this.width, this.height)
+        }
+      }
+      else if(this.name == 'DonieL' && this.side !== true){
+        ctx.drawImage(this.imgDonieCLeft, this.x, this.y, this.width, this.height)
+        if(p2counter%2 !== 0){
+          ctx.drawImage(this.imgDonieOLeft, this.x, this.y, this.width, this.height)
+        }
+      }
+      else if(this.name == 'MikeL' && this.side !== true){
+        ctx.drawImage(this.imgMikeCLeft, this.x, this.y, this.width, this.height)
+        if(p2counter%2 !== 0){
+          ctx.drawImage(this.imgMikeOLeft, this.x, this.y, this.width, this.height)
+        }
+      }
     }
 }
-
 
 class Pizza{
   constructor(x,y){
@@ -183,10 +216,13 @@ class Pizza{
 
 const game = new Board()
 const select = new Board()
-//const player1 = new Player(160,400, name[0], right)
-//const player2 = new Player2(870, 400, name[1], left)
+let player1 
+//= new Player(160,400, , true)
+let player2 
+//= new Player(870, 400, 'RafaL', false)
 //const pizzap1 = new Pizza(190, 200)
 //const pizzap2 = new Pizza(770, 200)
+
 
 function start() {
   interval = setInterval(update, 1000 / 60)
@@ -198,6 +234,47 @@ function playerinputs(){
 min = 0
 max = 4
 return Math.floor((Math.random()* (max-min))+min)
+}
+
+leo.onclick = function(){
+  buttonsmash.play()
+  play1.style.display = 'none'
+  play2.style.display = ''
+  if(player1){
+    return player2 = new Player(870, 400, 'LeoL', false)
+  }
+  player1 = new Player(160,400, 'Leo', true)
+
+}
+
+raph.onclick = function(){
+  buttonsmash.play()
+  play1.style.display = 'none'
+  play2.style.display = ''
+  if(player1){
+    return player2 = new Player(870, 400, 'RafaL', false)
+  }
+  player1 = new Player(160,400, 'Rafa', true)
+}
+
+mike.onclick = function(){
+  buttonsmash.play()
+  play1.style.display = 'none'
+  play2.style.display = ''
+  if(player1){
+    return player2 = new Player(870, 400, 'MikeL', false)
+  }
+  player1 = new Player(160,400, 'Mike', true)
+}
+
+don.onclick = function(){
+  buttonsmash.play()
+  play1.style.display = 'none'
+  play2.style.display = ''
+  if(player1){
+    return player2 = new Player(870, 400, 'DonieL', false)
+  }
+  player1 = new Player(160,400, 'Donie', true)
 }
 
 function player1inputs(){
@@ -422,6 +499,7 @@ chars.style.display = ''
 home.style.display = 'none'
 gameScreen.style.display = ''
 bgmusic.play()
+buttonsmash.play()
 }
  
 battbutton.onclick = function(){
@@ -431,13 +509,18 @@ battbutton.onclick = function(){
   chars.style.display = 'none'
   bgmusic.pause()
   battlemusic.play()
+  buttonsmash.play()
+  play2.style.display = 'none'
   start()
   pizzaEatP1()
   pizzaEatP2()
+  player2.draw()
+  player1.draw()
   }
   
   again.onclick = function(){
     location.reload()
+    buttonsmash.play()
   }
 
   function gameOver() {
@@ -457,9 +540,13 @@ battbutton.onclick = function(){
 
 function update() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
-    game.draw()
+      game.draw()
     select.draw()
-    gameOver()
     pizzaEatP1()
     pizzaEatP2()
+
+    gameOver()
+    player1.draw()
+    player2.draw()
+  
   }
